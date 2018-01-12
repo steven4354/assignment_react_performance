@@ -19,13 +19,22 @@ class Trade extends Component {
     // document.getElementById('').innerText
     // way to ^^ change total without changing state (and rerendering)
     // -> performance gains
+    const currentStockPrice = this.props.location.state.stock.dates[0].closing;
+    console.log("currentStockPrice => ", currentStockPrice);
+    const currentDesiredQuantity = e.target.value;
+    console.log("currentDesiredQuantity =>", currentDesiredQuantity);
+    const totalCost =
+      Number(currentDesiredQuantity) * Number(currentStockPrice);
+    console.log("totalCost =>", totalCost);
 
-    if (e.target.id === "quantity") {
-      console.log("e.target.value for quantity =>", e.target.value);
-      this.setState({
-        quantity: e.target.value
-      });
-    }
+    document.getElementById("total").textContent = `${totalCost}`;
+
+    // if (e.target.id === "quantity") {
+    //   console.log("e.target.value for quantity =>", e.target.value);
+    //   this.setState({
+    //     quantity:
+    //   });
+    // }
   }
 
   componentDidMount() {}
@@ -53,7 +62,6 @@ class Trade extends Component {
               <div className="col-xl-6 offset-xl-2">
                 <form
                   id="trade-form"
-                  onChange={this.setTotal}
                   onSubmit={onSubmit}
                   className="form-group"
                   style={{marginTop: "10px", marginLeft: "30px"}}
@@ -153,6 +161,7 @@ class Trade extends Component {
                       Total
                     </label>
                     <div
+                      id="total"
                       className="col-10"
                       style={{
                         textAlign: "left",
@@ -160,7 +169,7 @@ class Trade extends Component {
                         color: "blue"
                       }}
                     >
-                      $ {Number(this.state.quantity) * currentStockPrice}
+                      {/*$ {Number(this.state.quantity) * currentStockPrice}*/}
                     </div>
                   </div>
                   <input
