@@ -110,6 +110,7 @@ class Trade extends Component {
                       <input
                         className="form-control"
                         type="text"
+                        onChange={this.setTotal}
                         name="quantity"
                         placeholder="Enter quantity"
                         id="quantity"
@@ -169,7 +170,8 @@ class Trade extends Component {
                         color: "blue"
                       }}
                     >
-                      {/*$ {Number(this.state.quantity) * currentStockPrice}*/}
+                      $ 0
+                      {/*$ {Number(this.state.quantity) * currentStockPrice} */}
                     </div>
                   </div>
                   <input
