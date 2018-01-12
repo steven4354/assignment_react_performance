@@ -150,7 +150,7 @@ class Portfolio extends Component {
                             pathname: "/trade",
                             state: {
                               stock: stocks.find(stock => {
-                                if (stock.name == symbol) {
+                                if (stock.name === symbol) {
                                   return true;
                                 } else {
                                   return false;
