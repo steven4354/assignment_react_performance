@@ -16,13 +16,7 @@ class StockDataContainer extends Component {
 
   render() {
     const {getInitialStocks, stocks, isFetching} = this.props;
-    return (
-      <StockData
-        getInitialStocks={getInitialStocks}
-        stocks={stocks}
-        isFetching={isFetching}
-      />
-    );
+    return <StockData getInitialStocks={getInitialStocks} stocks={stocks} />;
   }
 }
 
@@ -30,8 +24,7 @@ class StockDataContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    stocks: state.initialStocksReducer.stocks,
-    isFetching: state.initialStocksReducer.isFetching
+    stocks: state.initialStocksReducer.stocks
   };
 };
 

@@ -33,18 +33,22 @@ export function getFailure(error) {
 }
 
 //action to get 30 stocks and info
-export function getInitialStocks() {
+export function getInitialStocks(rehydratedData) {
   //some initial setup for variables in the fetch call
 
   return dispatch => {
-    dispatch(getRequest());
-    return new Promise((res, rej) => {
-      setTimeout(() => {
-        console.log("data in the action => ", data);
-        dispatch(getSuccess(data.default));
-        res(data);
-      }, 100);
-    });
+    if (
+      Object.keys(rehydratedData).length !== Object.keys(data.default).length
+    ) {
+      dispatch(getRequest());
+      return new Promise((res, rej) => {
+        setTimeout(() => {
+          console.log("data in the action => ", data);
+          dispatch(getSuccess(data.default));
+          res(data);
+        }, 100);
+      });
+    }
   };
 }
 

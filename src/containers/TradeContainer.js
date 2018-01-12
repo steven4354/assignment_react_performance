@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       //using the submission data for action dispatch
       if (
         data.symbol &&
-        Number(data.quantity) !== NaN &&
+        !isNaN(Number(data.quantity)) &&
         (data.transaction === "buy" || data.transaction === "sell")
       ) {
         console.log("form data correct => ", "true");

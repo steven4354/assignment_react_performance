@@ -15,6 +15,7 @@ class Portfolio extends Component {
   }
 
   render() {
+    console.log("props of portfolio =>", this.props);
     const {transactions, stocks} = this.props;
 
     //merge the transactions

@@ -13,11 +13,13 @@ class List extends Component {
   }
 
   componentDidMount() {
-    const {getInitialStocks} = this.props;
+    const {getInitialStocks, stocks} = this.props;
 
-    getInitialStocks();
+    getInitialStocks(stocks);
   }
+
   render() {
+    console.log("stock component has rendered");
     const {stocks} = this.props;
     let key = 0;
 

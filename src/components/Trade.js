@@ -16,6 +16,10 @@ class Trade extends Component {
   //if the quantity input changes, change the state
   //so that the total can be calculated
   setTotal(e) {
+    // document.getElementById('').innerText
+    // way to ^^ change total without changing state (and rerendering)
+    // -> performance gains
+
     if (e.target.id === "quantity") {
       console.log("e.target.value for quantity =>", e.target.value);
       this.setState({
@@ -26,6 +30,7 @@ class Trade extends Component {
 
   componentDidMount() {}
   render() {
+    console.log("trade component has rendered");
     console.log("trade props => ", this.props);
     const {onSubmit} = this.props;
 
